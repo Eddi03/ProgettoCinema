@@ -2,6 +2,7 @@ package com.grupppofigo.progettocinema.riassunto;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
