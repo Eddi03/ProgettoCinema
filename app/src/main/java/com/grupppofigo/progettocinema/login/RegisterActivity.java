@@ -1,6 +1,8 @@
 package com.grupppofigo.progettocinema.login;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -62,6 +64,33 @@ public class RegisterActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 hideSoftKeyboard(RegisterActivity.this);
                 return false;
+            }
+        });
+
+        // DISPLAY TERMINI E CONDIZIONI DEL CONTRATTO
+        contratto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                builder
+                        .setTitle("Termini del Contratto:")
+                        .setMessage(R.string.terms)
+                        .setPositiveButton("Accetto", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                contratto.setChecked(true);
+                            }
+                        })
+                        .setNegativeButton("Rifiuto", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                contratto.setChecked(false);
+                                SnackBar.with(getApplicationContext())
+                                        .show(constraintLayout, R.string.must_accept_contrat, Snackbar.LENGTH_SHORT);
+                            }
+                        })
+                        .create()
+                        .show();
             }
         });
 
