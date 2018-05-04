@@ -174,7 +174,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (psw.length() < MIN_CHAR_PASSW) {
             layoutPssw.setErrorEnabled(true);
             layoutPssw.setError(getString(R.string.err_passw));
-            errCount++;
+            errCount++;//lll
         }
         else {
             layoutPssw.setErrorEnabled(false);
